@@ -74,6 +74,19 @@ df['usesAIForLearning'] = df['LearnCode'].apply(lambda x: has_options(x, AI_CODE
 df['usesStackOverflow'] = df['LearnCode'].apply(lambda x: has_options(x, STACK_OVERFLOW))
 
 # %%
+df = df.rename(columns={
+    'ResponseId': 'responseId',
+    'Age': 'age',
+    'YearsCode': 'yearsCode',
+    'DevType': 'devType',
+    'LearnCodeChoose': 'learnCodeChoose',
+    'LearnCode': 'learningMethods',
+    'LearnCodeAI': 'learnCodeAI',
+    'AILearnHow': 'aiLearningMethods',
+    'AISelect': 'aiUsage',
+    'AIAcc': 'aiTrust',
+    'AISent': 'aiSentiment',
+})
 print(df.info())
 
 # %%
