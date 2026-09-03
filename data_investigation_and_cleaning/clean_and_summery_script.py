@@ -88,6 +88,7 @@ df = df.rename(columns={
     'AISent': 'aiSentiment',
 })
 print(df.info())
+print(df.isna().sum())
 
 # %%
 df.to_json(basePath / "data/developer_ai_learning_summery.json", orient="records", lines=True)
