@@ -1,6 +1,7 @@
 services:
   kafka:
     image: apache/kafka
+    container_name: kafka-sun
     ports:
       - "9092:9092"
     environment:

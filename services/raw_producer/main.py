@@ -13,12 +13,21 @@ topic = "raw-developer-lerning-data"
 
 file_path = Path(__file__).parents[2] / "data" / "developer_ai_learning_raw.csv"
 
+def acked(err, msg):
+    if err is not None:
+        print("Failed to deliver message: %s: %s" % (str(msg), str(err)))
+    else:
+        print("Message produced: %s" % (str(msg)))
+
 def read_lerning_file(path):
     with open (path, "r", newline='') as csvfile:
         reader = csv.DictReader(csvfile)
+        i = 1
         for line in reader:
-            producer.produce(topic, value= json.dumps(line))
-            # print(json.dumps(line))
+            producer.produce(topic, value= json.dumps(line), callback=acked)
+            print(i)
+            i += 1
+            
 try:
     read_lerning_file(file_path)
 except FileNotFoundError as e:
