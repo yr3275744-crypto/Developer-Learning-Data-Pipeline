@@ -24,7 +24,8 @@ def read_lerning_file(path):
         reader = csv.DictReader(csvfile)
         i = 1
         for line in reader:
-            producer.produce(topic, value= json.dumps(line), callback=acked)
+            line = json.dumps(line)
+            producer.produce(topic, value= line, callback=acked)
             print(i)
             i += 1
             

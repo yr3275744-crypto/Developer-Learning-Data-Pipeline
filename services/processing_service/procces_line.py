@@ -19,12 +19,14 @@ def experienceLevel(yearsCode):
 def procces(raw:dict) -> dict:
     df = pd.DataFrame(raw, index= [0])
     df["YearsCode"] =pd.to_numeric(df["YearsCode"],errors="coerce").astype("Int64")
+    df["ResponseId"] =pd.to_numeric(df["ResponseId"],errors="coerce").astype("int64")
 
     # %%
     pd.set_option("display.max_colwidth", 50)
     df["LearnCode"] = df["LearnCode"].str.split(";")
     df["AILearnHow"] = df["AILearnHow"].str.split(";")
 
+    df["experienceLevel"] = df["YearsCode"].apply(experienceLevel)
     df["experienceLevel"] = df["YearsCode"].apply(experienceLevel)
 
 

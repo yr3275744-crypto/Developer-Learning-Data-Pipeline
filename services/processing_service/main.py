@@ -28,6 +28,7 @@ def main():
                 print(proccesed_line)
 
                 configuration.producer.produce(configuration.producer_topic, value=proccesed_line, callback=acked)
+                configuration.producer.poll(0)
     finally:
         configuration.consumer.unsubscribe()
         configuration.consumer.close()
