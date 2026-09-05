@@ -1,4 +1,5 @@
 ﻿using Confluent.Kafka;
+using Confluent.Kafka.Admin;
 using ConsumeToMongo.Models;
 using Microsoft.Extensions.DependencyInjection;
 using MongoDB.Driver;
@@ -36,6 +37,7 @@ namespace ConsumeToMongo
             };
             _consumer = new ConsumerBuilder<Ignore, string>(config).Build();
         }
+        
         public async Task ConsumeToDbLoop()
         {
             try
