@@ -9,19 +9,19 @@ namespace ConsumeToMongo.Models
 {
     public class Survy
     {
-        [BsonElement("responseId")]
+        //[BsonElement("responseId")]
         public int ResponseId { get; set; }
 
-        [BsonElement("age")]
+        //[BsonElement("age")]
         public string Age { get; set; } = string.Empty;
 
-        [BsonElement("yearsCode")]
+        //[BsonElement("yearsCode")]
         public int? YearsCode { get; set; }
 
-        [BsonElement("devType")]
+        //[BsonElement("devType")]
         public string? DevType { get; set; } = string.Empty;
 
-        [BsonElement("learnCodeChoose")]
+        //[BsonElement("learnCodeChoose")]
         public string? LearnCodeChoose { get; set; } = string.Empty;
 
         [BsonElement("learningMethods")]
@@ -45,13 +45,13 @@ namespace ConsumeToMongo.Models
         [BsonElement("experienceLevel")]
         public string ExperienceLevel { get; set; } = string.Empty;
 
-        [BsonElement("usesDocumentation")]
+        //[BsonElement("usesDocumentation")]
         public bool UsesDocumentation { get; set; }
 
-        [BsonElement("usesAIForLearning")]
+        //[BsonElement("usesAIForLearning")]
         public bool UsesAIForLearning { get; set; }
 
-        [BsonElement("usesStackOverflow")]
+        //[BsonElement("usesStackOverflow")]
         public bool UsesStackOverflow { get; set; }
 
     }
