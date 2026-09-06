@@ -37,6 +37,7 @@ services:
     build: ./services/processing_service
     container_name: procesing-service
     depends_on:
+      - kafka
       - raw-producer
   consume-to-mongo:
     build: ./services/ConsumeToMongo
@@ -44,4 +45,12 @@ services:
     depends_on:
       mongo:
         condition: service_healthy
-      
+      procesing-service:
+        condition: service_started
+  api:
+    build: ./services/API
+    container_name: survy-api
+    ports:
+      - "8082:8080"
+    depends_on:
+      - consume-to-mongo
